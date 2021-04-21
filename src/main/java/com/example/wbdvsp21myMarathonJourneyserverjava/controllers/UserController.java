@@ -14,6 +14,11 @@ public class UserController {
   @Autowired
   UserService service;
 
+  @GetMapping("/")
+  public String testServer() {
+    return "Hi. Server is running!";
+  }
+
   @PostMapping("/api/users")
   public User createUser(
           @RequestBody User user
@@ -24,11 +29,6 @@ public class UserController {
   @GetMapping("/api/users")
   public List<User> findAllUsers() {
     return service.findAllUsers();
-  }
-
-  @GetMapping("/")
-  public String testServer() {
-    return "hi";
   }
 
   @GetMapping("/api/users/{uid}")
