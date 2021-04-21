@@ -61,12 +61,12 @@ public class UserService {
     return 1;
   }
 
-  public User findUserByUsername(String username) {
-    return repository.findUserByUsername(username);
+  public User findUserByUsername(String userName) {
+    return repository.findUserByUsername(userName);
   }
 
-  public User findUserByCredentials(String username, String password) {
-    return repository.findUserByCredentials(username, password);
+  public User findUserByCredentials(String userName, String password) {
+    return repository.findUserByCredentials(userName, password);
   }
 
 }
