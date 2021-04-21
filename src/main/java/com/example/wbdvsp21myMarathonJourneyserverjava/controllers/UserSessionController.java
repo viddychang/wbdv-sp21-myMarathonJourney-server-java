@@ -37,11 +37,10 @@ public class UserSessionController {
 
   @PostMapping("/api/users/login")
   public User login(
-          @RequestBody String userName,
-          @RequestBody String password,
+          @RequestBody User creds,
           HttpSession session) {
 
-    User currentUser = service.findUserByCredentials(userName, password);
+    User currentUser = service.findUserByCredentials(creds.getUserName(), creds.getPassword());
     if (currentUser != null) {
       session.setAttribute("profile", currentUser);
       return currentUser;
