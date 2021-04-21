@@ -9,7 +9,7 @@ import javax.servlet.http.HttpSession;
 
 
 @RestController
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "https://my-marathon-journey.herokuapp.com", allowCredentials = "true")
 public class UserSessionController {
   @Autowired
   UserService service;
