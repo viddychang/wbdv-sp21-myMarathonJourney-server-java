@@ -36,8 +36,8 @@ public class UserService {
       if (user.getUserId() != null) {
         actualUser.setUserId(user.getUserId());
       }
-      if (user.getEmailAddress() != null) {
-        actualUser.setEmailAddress(user.getEmailAddress());
+      if (user.getUserName() != null) {
+        actualUser.setUserName(user.getUserName());
       }
       if (user.getFirstName() != null) {
         actualUser.setFirstName(user.getFirstName());
