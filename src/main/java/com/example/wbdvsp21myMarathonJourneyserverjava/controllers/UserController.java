@@ -26,6 +26,11 @@ public class UserController {
     return service.findAllUsers();
   }
 
+  @GetMapping("/")
+  public String testServer() {
+    return "hi";
+  }
+
   @GetMapping("/api/users/{uid}")
   public User findUserById(
           @PathVariable("uid") Long id
