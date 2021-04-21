@@ -9,7 +9,8 @@ import javax.servlet.http.HttpSession;
 
 
 @RestController
-@CrossOrigin(origins = "https://my-marathon-journey.herokuapp.com", allowCredentials = "true")
+//https://my-marathon-journey.herokuapp.com
+@CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
 public class UserSessionController {
   @Autowired
   UserService service;
@@ -36,11 +37,11 @@ public class UserSessionController {
 
   @PostMapping("/api/users/login")
   public User login(
-          @RequestBody String username,
+          @RequestBody String userName,
           @RequestBody String password,
           HttpSession session) {
 
-    User currentUser = service.findUserByCredentials(username, password);
+    User currentUser = service.findUserByCredentials(userName, password);
     if (currentUser != null) {
       session.setAttribute("profile", currentUser);
       return currentUser;
