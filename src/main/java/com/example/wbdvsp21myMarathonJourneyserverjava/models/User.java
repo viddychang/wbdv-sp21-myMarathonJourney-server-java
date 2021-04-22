@@ -15,9 +15,10 @@ public class User {
   private String lastName;
   private String dateOfBirth;
   private String userBiography;
+  private String emailAddress;
 
   public User(Long id, String userName, String password, String firstName,
-              String lastName, String dateOfBirth, String role) {
+              String lastName, String dateOfBirth, String role, String emailAddress) {
     this.userId = id;
     this.userName = userName;
     this.firstName = firstName;
@@ -26,10 +27,18 @@ public class User {
     this.password = password;
     this.role = role;
     this.userBiography = "";
+    this.emailAddress = emailAddress;
 
   }
 
   public User() {
+  }
+  public String getEmailAddress() {
+    return emailAddress;
+  }
+
+  public void setEmailAddress(String emailAddress) {
+    this.emailAddress = emailAddress;
   }
 
   public Long getUserId() {

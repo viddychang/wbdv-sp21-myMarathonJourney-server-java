@@ -57,6 +57,9 @@ public class UserService {
       if (user.getUserBiography() != null) {
         actualUser.setUserBiography(user.getUserBiography());
       }
+      if (user.getEmailAddress() != null) {
+        actualUser.setEmailAddress(user.getEmailAddress());
+      }
       repository.save(actualUser);
     }
     return 1;
