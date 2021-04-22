@@ -57,6 +57,7 @@ public class UserService {
       if (user.getUserBiography() != null) {
         actualUser.setUserBiography(user.getUserBiography());
       }
+      repository.save(actualUser);
     }
     return 1;
   }
