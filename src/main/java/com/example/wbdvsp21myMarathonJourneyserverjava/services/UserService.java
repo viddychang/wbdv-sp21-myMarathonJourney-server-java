@@ -41,6 +41,7 @@ public class UserService {
       }
       if (user.getFirstName() != null) {
         actualUser.setFirstName(user.getFirstName());
+        return 2;
       }
       if (user.getLastName() != null) {
         actualUser.setLastName(user.getLastName());
