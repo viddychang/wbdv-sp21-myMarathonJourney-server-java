@@ -24,7 +24,7 @@ public class UserSessionController {
     return newUser;
   }
 
-  @PostMapping("/api/users/profile")
+  @GetMapping("/api/users/profile")
   public User profile(HttpSession session) {
     return (User) session.getAttribute("profile");
   }
