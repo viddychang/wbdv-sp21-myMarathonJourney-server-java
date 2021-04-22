@@ -41,10 +41,10 @@ public class UserSessionController {
           @RequestBody User creds,
           HttpSession session) {
 
-    User currentUser = service.findUserByCredentials(creds.getUserName(), creds.getPassword());
-    if (currentUser != null) {
-      session.setAttribute("profile", currentUser);
-      return currentUser;
+    User existingUser = service.findUserByCredentials(creds.getUserName(), creds.getPassword());
+    if (existingUser != null) {
+      session.setAttribute("profile", existingUser);
+      return existingUser;
     } return null;
   }
 
