@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 @RestController
 //https://my-marathon-journey.herokuapp.com
 //http://localhost:3000
-@CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
+@CrossOrigin(origins = "https://my-marathon-journey.herokuapp.com", allowCredentials = "true")
 public class UserSessionController {
   @Autowired
   UserService service;
