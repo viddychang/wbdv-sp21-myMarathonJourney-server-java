@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface UserRepository extends CrudRepository<User, Long>  {
   @Query(value = "SELECT * FROM User WHERE user_id IN :uid", nativeQuery = true)
-  public List<User> findListUser(@Param("uid") Long userId);
+  public List<User> findListUser(@Param("uid") List<Long> userId);
 
   @Query(value = "SELECT * FROM User WHERE user_id=:uid", nativeQuery = true)
   public User findUserById(@Param("uid") Long userId);

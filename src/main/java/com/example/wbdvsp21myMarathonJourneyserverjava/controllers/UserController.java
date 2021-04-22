@@ -9,7 +9,8 @@ import java.util.List;
 
 
 @RestController
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "https://my-marathon-journey.herokuapp.com",
+        allowCredentials = "true")
 public class UserController {
   @Autowired
   UserService service;
