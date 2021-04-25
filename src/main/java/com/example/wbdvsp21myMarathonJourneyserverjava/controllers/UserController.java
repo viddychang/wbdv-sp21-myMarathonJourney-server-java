@@ -13,7 +13,7 @@ import javax.websocket.server.PathParam;
 //http://localhost:3000
 @RestController
 @CrossOrigin(origins = {"http://localhost:3000",
-        "https://my-marathon-journey.herokuapp.com"},
+        "http://my-marathon-journey.herokuapp.com"},
         allowCredentials = "true")
 public class UserController {
   @Autowired
