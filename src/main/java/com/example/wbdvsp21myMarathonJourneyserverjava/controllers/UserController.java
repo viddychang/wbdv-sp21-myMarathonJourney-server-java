@@ -7,9 +7,13 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import javax.websocket.server.PathParam;
 
+//https://my-marathon-journey.herokuapp.com
+//http://localhost:3000
 @RestController
-@CrossOrigin(origins = "https://my-marathon-journey.herokuapp.com",
+@CrossOrigin(origins = {"http://localhost:3000",
+        "https://my-marathon-journey.herokuapp.com"},
         allowCredentials = "true")
 public class UserController {
   @Autowired
@@ -26,6 +30,14 @@ public class UserController {
   ) {
     return service.createUser(user);
   }
+
+
+  @GetMapping("/api/users/username")
+  public List<User> findUsersByUserName(
+          @RequestParam("name") String userName) {
+    return service.findUserListByUserName(userName);
+  }
+
 
   @GetMapping("/api/users")
   public List<User> findAllUsers() {

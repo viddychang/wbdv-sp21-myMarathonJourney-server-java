@@ -10,7 +10,7 @@ import java.util.List;
 
 
 public interface RaceJourneyRepository extends CrudRepository<RaceJourney, Long>{
-  @Query(value = "SELECT * FROM User WHERE id=:uid", nativeQuery = true)
+  @Query(value = "SELECT * FROM race_journey WHERE user_id=:uid", nativeQuery = true)
   public List<RaceJourney> findRaceJourneyForUser(@Param("uid") String userId);
 
 }

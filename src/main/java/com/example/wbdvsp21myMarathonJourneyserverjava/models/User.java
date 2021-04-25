@@ -16,9 +16,11 @@ public class User {
   private String dateOfBirth;
   private String userBiography;
   private String emailAddress;
+  private String homeCity;
 
   public User(Long id, String userName, String password, String firstName,
-              String lastName, String dateOfBirth, String role, String emailAddress) {
+              String lastName, String dateOfBirth, String role, String emailAddress,
+              String homeCity) {
     this.userId = id;
     this.userName = userName;
     this.firstName = firstName;
@@ -28,11 +30,22 @@ public class User {
     this.role = role;
     this.userBiography = "";
     this.emailAddress = emailAddress;
+    this.homeCity = homeCity;
+
 
   }
 
   public User() {
   }
+
+  public String getHomeCity() {
+    return homeCity;
+  }
+
+  public void setHomeCity(String homeCity) {
+    this.homeCity = homeCity;
+  }
+
   public String getEmailAddress() {
     return emailAddress;
   }

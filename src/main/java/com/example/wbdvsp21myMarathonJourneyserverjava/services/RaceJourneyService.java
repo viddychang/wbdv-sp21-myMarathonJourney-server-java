@@ -3,6 +3,8 @@ package com.example.wbdvsp21myMarathonJourneyserverjava.services;
 import com.example.wbdvsp21myMarathonJourneyserverjava.models.RaceJourney;
 import com.example.wbdvsp21myMarathonJourneyserverjava.repositories.RaceJourneyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -52,6 +54,14 @@ public class RaceJourneyService {
 
       if (raceJourney.getUserId() != null) {
         actualRaceJourney.setRaceId(raceJourney.getUserId());
+      }
+
+      if (raceJourney.getRaceLogo() != null) {
+        actualRaceJourney.setRaceLogo(raceJourney.getRaceLogo());
+      }
+
+      if (raceJourney.getRaceDate() != null) {
+        actualRaceJourney.setRaceDate(raceJourney.getRaceDate());
       }
       repository.save(actualRaceJourney);
     }

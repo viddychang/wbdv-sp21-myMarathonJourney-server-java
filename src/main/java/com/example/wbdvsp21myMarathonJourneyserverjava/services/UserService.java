@@ -17,7 +17,7 @@ public class UserService {
   }
 
   public List<User> findAllUsers() {
-    return (List<User>) repository.findAll();
+    return (List<User>) repository.findAllUsers();
   }
 
   public User findUserById(Long userId) {
@@ -60,6 +60,9 @@ public class UserService {
       if (user.getEmailAddress() != null) {
         actualUser.setEmailAddress(user.getEmailAddress());
       }
+      if (user.getHomeCity() != null) {
+        actualUser.setHomeCity(user.getHomeCity());
+      }
       repository.save(actualUser);
     }
     return 1;
@@ -71,6 +74,10 @@ public class UserService {
 
   public User findUserByCredentials(String userName, String password) {
     return repository.findUserByCredentials(userName, password);
+  }
+
+  public List<User> findUserListByUserName(String userName) {
+    return repository.findUserListByUserName(userName);
   }
 
 }

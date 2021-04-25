@@ -7,11 +7,11 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 
-
-@RestController
 //https://my-marathon-journey.herokuapp.com
 //http://localhost:3000
-@CrossOrigin(origins = "https://my-marathon-journey.herokuapp.com",
+@RestController
+@CrossOrigin(origins = {"http://localhost:3000",
+        "https://my-marathon-journey.herokuapp.com"},
         allowCredentials = "true")
 public class UserSessionController {
   @Autowired
@@ -27,10 +27,13 @@ public class UserSessionController {
 
   @GetMapping("/api/users/profile")
   public User profile(HttpSession session) {
-    return (User) session.getAttribute("profile");
+    if (session != null) {
+      return (User) session.getAttribute("profile");
+    }
+    return null;
   }
 
-  @GetMapping("/api/session/invalidate")
+  @PostMapping("/api/session/logout")
   public String invalidateSession(
           HttpSession session) {
     session.invalidate();
@@ -39,10 +42,9 @@ public class UserSessionController {
 
   @PostMapping("/api/users/login")
   public User login(
-          @RequestBody User credentials,
-          HttpSession session) {
-
-    User existingUser = service.findUserByCredentials(credentials.getUserName(), credentials.getPassword());
+          @RequestBody User credentials, HttpSession session) {
+    User existingUser = service.findUserByCredentials(credentials.getUserName(),
+            credentials.getPassword());
     if (existingUser != null) {
       session.setAttribute("profile", existingUser);
       return existingUser;

@@ -9,26 +9,39 @@ public class RaceJourney {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
-
   private String raceId;
   private String raceName;
   private String raceMonth;
   private String raceURL;
   private String userId;
+  private String raceLogo;
+  private String raceDate;
+
+
 
 
   public RaceJourney(Long id, String raceId, String raceName, String raceMonth, String raceURL,
-                     String userId) {
+                     String userId, String raceLogo, String raceDate) {
     this.id = id;
     this.raceId = raceId;
     this.raceName = raceName;
     this.raceMonth = raceMonth;
     this.raceURL = raceURL;
     this.userId = userId;
+    this.raceLogo = raceLogo;
+    this.raceDate = raceDate;
 
   }
 
   public RaceJourney() {
+  }
+
+  public String getRaceDate() {
+    return raceDate;
+  }
+
+  public void setRaceDate(String raceDate) {
+    this.raceDate = raceDate;
   }
 
   public Long getId() {
@@ -79,4 +92,11 @@ public class RaceJourney {
     this.userId = userId;
   }
 
+  public String getRaceLogo() {
+    return raceLogo;
+  }
+
+  public void setRaceLogo(String raceLogo) {
+    this.raceLogo = raceLogo;
+  }
 }
