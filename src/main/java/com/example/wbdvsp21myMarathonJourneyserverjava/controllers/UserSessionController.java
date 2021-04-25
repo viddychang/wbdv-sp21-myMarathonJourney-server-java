@@ -27,10 +27,7 @@ public class UserSessionController {
 
   @GetMapping("/api/users/profile")
   public User profile(HttpSession session) {
-    if (session != null) {
-      return (User) session.getAttribute("profile");
-    }
-    return null;
+    return (User) session.getAttribute("profile");
   }
 
   @PostMapping("/api/session/logout")
