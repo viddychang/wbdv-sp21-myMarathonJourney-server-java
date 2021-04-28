@@ -19,7 +19,7 @@ public interface UserRepository extends CrudRepository<User, Long>  {
   public User findUserByUsername(@Param("username") String username);
 
 
-  @Query(value = "SELECT * FROM User WHERE user_name LIKE '%:username%'", nativeQuery = true)
+  @Query(value = "SELECT * FROM User WHERE user_name LIKE %:username%", nativeQuery = true)
   public List<User> findUserListByUserName(@Param("username") String username);
 
   @Query(value = "SELECT * FROM User WHERE user_name=:username and password=:password", nativeQuery = true)
